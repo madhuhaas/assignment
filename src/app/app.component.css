@@ -1,0 +1,14 @@
+nav a {
+    font-size: large;
+    font-weight: bold;
+    padding-left: .5em;
+}
+
+nav {
+    border-bottom: 2px solid black;
+    padding-bottom: .75em;
+}
+
+.container {
+    height: 100%;
+}

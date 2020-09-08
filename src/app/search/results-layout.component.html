@@ -1,0 +1,33 @@
+<div class="row">
+    <div class="card" style="width: 100%" *ngFor="let flight of results">
+        <div class="card-body">
+            <div class="row row-cols-7">
+                <div class="col">
+                    <img src="../../assets/flight-single.png" class="card-img-left" alt="Flight">
+                </div>
+                <div class="col">
+                    <h5>{{ flight.name }}</h5>
+                    {{ flight.flightNo }}
+                </div>
+                <div class="col">
+                    <h5>{{ flight.departureTime }}</h5>
+                    {{ flight.origin }}
+                </div>
+                <div class="col">
+                    <h5>{{ flight.arrivalTime }}</h5>
+                    {{ flight.destination }}
+                </div>
+                <div class="col">
+                    <h5>{{ flight.duration }}</h5>
+                    Total duration
+                </div>
+                <div class="col">
+                    {{ flight.price }}
+                </div>
+                <div class="col">
+                    <a href="#" class="btn btn-primary">Book</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

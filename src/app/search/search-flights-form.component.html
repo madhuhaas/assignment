@@ -1,0 +1,42 @@
+<form [formGroup]="searchForm">
+    <div class="form-group">
+        <input type="text" class="form-control" id="originCity" formControlName="origin" aria-describedby="originCityHelp" placeholder="Enter Origin City" [ngClass]="{'is-invalid': (searchForm.get('origin').touched || searchForm.get('origin').dirty) && !searchForm.get('origin').valid}">
+        <span class="invalid-feedback" *ngIf="searchForm.get('origin').errors?.required">
+            Enter the Origin City
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="text" class="form-control" id="destinationCity" formControlName="destination" aria-describedby="destinationCityHelp" placeholder="Enter Destination City" [ngClass]="{'is-invalid': (searchForm.get('destination').touched || searchForm.get('destination').dirty) && !searchForm.get('destination').valid}">
+        <span class="invalid-feedback" *ngIf="searchForm.get('destination').errors?.required">
+            Enter the Destination City
+        </span>
+    </div>
+    <div class="form-group">
+        <input type="date" class="form-control" id="departureDate" formControlName="departureDate" aria-describedby="departureDateHelp" placeholder="Departure Date" [ngClass]="{'is-invalid': (searchForm.get('departureDate').touched || searchForm.get('departureDate').dirty) && !searchForm.get('departureDate').valid}">
+        <span class="invalid-feedback" *ngIf="searchForm.get('departureDate').errors?.required">
+            Enter the Departure Date
+        </span>
+    </div>
+    <div class="form-group" *ngIf="bookReturn">
+        <input type="date" class="form-control" id="returnDate" formControlName="returnDate" aria-describedby="returnDateHelp" placeholder="Return Date" [ngClass]="{'is-invalid': (searchForm.get('returnDate').touched || searchForm.get('returnDate').dirty) && !searchForm.get('returnDate').valid}">
+        <span class="invalid-feedback" *ngIf="searchForm.get('returnDate').errors?.required">
+            Enter the Return Date
+        </span>
+    </div>
+    <select class="custom-select mr-sm-2" id="noOfPassengers" formControlName="passengers" [ngClass]="{'is-invalid': (searchForm.get('passengers').touched || searchForm.get('passengers').dirty) && !searchForm.get('passengers').valid}">
+        <option value="" selected>Select Passengers</option>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+    <span class="invalid-feedback" *ngIf="searchForm.get('passengers').errors?.required">
+            Select atleast 1 passenger
+        </span>
+    <button type="button" class="btn btn-primary" (click)="searchFlights()" [disabled]="!searchForm.valid">Search</button>
+</form>

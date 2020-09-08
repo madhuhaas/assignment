@@ -1,0 +1,52 @@
+<nav class='navbar navbar-expand navbar-light bg-light'>
+    <div class="container">
+        <div class="row" *ngIf="!searchParams?.bookReturn">
+            <div class="col">
+                <h5 class="mt-0" *ngIf="resultsOnward.length === 0"> No results found </h5>
+                <div class="media" *ngIf="resultsOnward.length > 0">
+                    <img class="mr-3" src="../../assets/flight-icon.jpg" alt="Flight Journey">
+                    <div class="media-body">
+                        <h5 class="mt-0">{{ searchParams.origin }} to {{ searchParams.destination }}</h5>
+                        {{ resultsOnward.length }} flights found {{ searchParams.departureDate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" *ngIf="searchParams?.bookReturn">
+            <div class="col-6">
+                <div class="media" *ngIf="resultsOnward.length > 0">
+                    <img class="mr-3" src="../../assets/flight-icon.jpg" alt="Flight Journey">
+                    <div class="media-body">
+                        <h5 class="mt-0">{{ searchParams.origin }} to {{ searchParams.destination }}</h5>
+                        {{ resultsOnward.length }} flights found {{ searchParams.departureDate }}
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="media" *ngIf="resultsReturn.length > 0">
+                    <img class="mr-3" src="../../assets/flight-icon.jpg" alt="Flight Journey">
+                    <div class="media-body">
+                        <h5 class="mt-0">{{ searchParams.destination }} to {{ searchParams.origin }}</h5>
+                        {{ resultsReturn.length }} flights found {{ searchParams.returnDate }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+<div id="testId" class="container-fluid" *ngIf="resultsOnward.length > 0">
+    <div class="row row-cols-2" *ngIf="searchParams.bookReturn">
+        <div class="col">
+            <results-layout [results]="resultsOnward"></results-layout>
+            <results-layout [results]="multiFlightsOnward" multiple="true"></results-layout>
+        </div>
+        <div class="col">
+            <results-layout [results]="resultsReturn"></results-layout>
+        </div>
+    </div>
+    <div class="row" *ngIf="!searchParams.bookReturn">
+        <div class="col">
+            <results-layout [results]="resultsOnward"></results-layout>
+        </div>
+    </div>
+</div>
