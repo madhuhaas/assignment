@@ -60,7 +60,7 @@ export class SearchResultsComponent implements OnDestroy, OnInit {
 
         // calculate total price and durations of all available flights
         this.resultsOnward.forEach( function(flight) {
-          flight.price = flight.price*searchParams.passengers;
+          flight.totalPrice = flight.price*searchParams.passengers;
           let departureTime = flight.departureTime;
           let arrivalTime = flight.arrivalTime;
           let arrivalInMins = parseInt(arrivalTime.split(":")[0])*60 + parseInt(arrivalTime.split(":")[1]);
@@ -100,7 +100,7 @@ export class SearchResultsComponent implements OnDestroy, OnInit {
         console.log(multiFlightsReturn);
           
           this.resultsReturn.forEach( function(flight) {
-            flight.price = flight.price*searchParams.passengers;
+            flight.totalPrice = flight.price*searchParams.passengers;
             let departureTime = flight.departureTime;
             let arrivalTime = flight.arrivalTime;
             let arrivalInMins = parseInt(arrivalTime.split(":")[0])*60 + parseInt(arrivalTime.split(":")[1]);

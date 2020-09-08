@@ -9,4 +9,5 @@ export interface Flight {
   price: number;
   name: string;
   duration: string;
+  totalPrice: number;
 }
